@@ -1,0 +1,120 @@
+// ─────────────────────────────────────────────────────────────
+//  Single source of truth for all portfolio content.
+//  Edit values here — every section reads from this file.
+// ─────────────────────────────────────────────────────────────
+
+export const profile = {
+  name: "Anurag Raghav Sinha",
+  role: "Full-Stack Developer",
+  tagline: "I design, build, and ship production systems — end to end.",
+  intro:
+    "I'm a full-stack developer at CSK Infotech. I single-handedly built and deployed a production IT helpdesk for a 150+ faculty institute, and I build core modules for an enterprise sales CRM used by our sales team. I care about the why behind every decision — and I use modern tooling, including AI, to ship fast.",
+  location: "Greater Noida, India · Open to Remote",
+  email: "anuragraghavsinha@gmail.com",
+  phone: "+91 76686 27902",
+  github: "https://github.com/Anurag945",
+  linkedin: "https://linkedin.com/in/anurag-sinha945",
+  resume: "/Anurag_Raghav_Sinha_Resume.pdf",
+};
+
+export const crm = {
+  index: "01",
+  tint: "sky",
+  label: "Case Study",
+  title: "Central CRM",
+  subtitle: "Enterprise B2B Sales Platform",
+  blurb:
+    "A role-based CRM that runs the company's entire sales lifecycle — leads, pipeline, quotations, cost-sheets, and analytics. I built core modules that made the sales team's daily work dramatically faster.",
+  stack: ["React 19", "Node / Express", "MongoDB", "JWT / SSO", "Recharts", "Puppeteer"],
+  modules: [
+    {
+      title: "Quotation & Approval Engine",
+      text: "Multi-vendor price comparison, GST / freight / margin math, and server-side PDF generation with a Pending → Approved/Rejected flow.",
+    },
+    {
+      title: "Automated Reminders",
+      text: "A node-cron job flags deals stagnant 15+ days and emails the owning salesperson — keeping the pipeline clean automatically.",
+    },
+    {
+      title: "SSO & Role Access",
+      text: "JWT-based single sign-on with a central auth server, resolving identities across MySQL & MongoDB into role-scoped dashboards.",
+    },
+  ],
+  // Animated dashboard mock numbers (kept playful, not real company data)
+  kpis: [
+    { label: "Pipeline value", prefix: "₹", base: 48, suffix: "L" },
+    { label: "Open deals", prefix: "", base: 36, suffix: "" },
+    { label: "Win rate", prefix: "", base: 62, suffix: "%" },
+  ],
+};
+
+export const helpdesk = {
+  index: "02",
+  tint: "peach",
+  label: "Case Study",
+  title: "LNMIIT IT Helpdesk",
+  subtitle: "Production Support Portal · Built & Deployed Solo",
+  url: "https://lnmiitsupport.cskinfotech.com",
+  blurb:
+    "I single-handedly designed, built, and deployed a production IT helpdesk for The LNM Institute of Information Technology, Jaipur — serving 150+ faculty and a 10-person field team under a multi-year maintenance contract.",
+  stack: ["PHP 8", "MariaDB", "Chart.js", "GitHub Actions", "cPanel"],
+  stats: [
+    { value: 150, suffix: "+", label: "Faculty served" },
+    { value: 4, suffix: "", label: "Roles (RBAC)" },
+    { value: 10, suffix: "", label: "Field engineers" },
+    { value: 1, suffix: "", label: "Sole owner" },
+  ],
+  modules: [
+    {
+      title: "Live SLA Engine",
+      text: "Per-priority response/resolution targets with business-hour math, computed live from timestamps to never drift.",
+    },
+    {
+      title: "Auto-Escalation",
+      text: "A 5-minute cron poll escalates breaching tickets through L1/L2, with a full audit trail of every event.",
+    },
+    {
+      title: "Security Hardening",
+      text: "bcrypt with transparent MD5 rehash, parameterized SQL, single-use reset tokens, and a before/after audit log.",
+    },
+  ],
+};
+
+export const skills = [
+  { group: "Languages", items: ["JavaScript (ES6+)", "PHP", "Python", "Java", "SQL"] },
+  { group: "Frontend", items: ["React.js", "Material UI", "Tailwind", "Recharts", "GSAP", "Three.js"] },
+  { group: "Backend", items: ["Node.js", "Express", "PHP 8", "REST APIs", "JWT / SSO"] },
+  { group: "Databases", items: ["MongoDB", "MariaDB", "MySQL", "PostgreSQL"] },
+  { group: "Architecture", items: ["RBAC", "SLA Engines", "Audit Logging", "System Design"] },
+  { group: "DevOps & AI", items: ["Git / GitHub", "GitHub Actions", "cPanel", "node-cron", "LLM Integration"] },
+];
+
+export const recognition = {
+  award: {
+    title: "Choice of CSK",
+    issuer: "Awarded by the CSK Infotech CEO",
+    date: "May 2026",
+    text: "Recognition for building the Central CRM modules that streamlined the sales team's daily workflow.",
+  },
+  certs: [
+    { title: "Mastering Generative AI & ChatGPT", issuer: "GeeksforGeeks", date: "2026 · In progress" },
+    { title: "Data Structures & Algorithms with Java", issuer: "Coding Ninjas", date: "2024" },
+    { title: "Introduction to Java", issuer: "Coding Ninjas", date: "2024" },
+  ],
+};
+
+export const education = {
+  degree: "B.Tech, Computer Science & Engineering",
+  school: "Dr. A.P.J. Abdul Kalam Technical University, Greater Noida",
+  period: "2021 – 2025",
+  score: "CGPA 7.8 / 10",
+};
+
+// Image paths — drop files in /public/images/. Missing files fall back to
+// labeled placeholders automatically (see <Photo /> component).
+export const images = {
+  me: "/images/me.jpg",
+  awardCeo: "/images/award-ceo.jpg",
+  certChoice: "/images/cert-choice-of-csk.jpg",
+  crmShot: "/images/crm-pipeline.png",
+};
