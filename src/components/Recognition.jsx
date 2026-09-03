@@ -10,14 +10,8 @@ export default function Recognition() {
         <h2 className="reveal display font-extrabold text-[42px] md:text-[64px] leading-[1.1] mb-12">Proof &amp; honors.</h2>
 
         <div className="grid lg:grid-cols-2 gap-6">
-          {/* Award feature */}
-          <div className="reveal card overflow-hidden p-0">
-            <Photo
-              src={images.awardCeo}
-              alt={`${award.title} award being presented by the CSK Infotech CEO`}
-              rounded="rounded-none"
-              className="w-full aspect-video"
-            />
+          {/* Award feature — caption leads, photo fills the tall remainder */}
+          <div className="reveal card overflow-hidden p-0 flex flex-col">
             <div className="p-6">
               <div className="flex items-center gap-2">
                 <span>🏆</span>
@@ -26,20 +20,35 @@ export default function Recognition() {
               <p className="text-sm text-muted mt-1">{award.issuer} · {award.date}</p>
               <p className="text-sm text-ink/80 mt-3 leading-relaxed">{award.text}</p>
             </div>
+
+            {images.awardCeo && (
+              // mt-auto pins the photo to the bottom of the stretched card.
+              // contain, not cover — this is a portrait shot, and a cover crop
+              // would slice the heads or the certificate out of frame.
+              <div className="mt-auto px-6 pb-6">
+                <Photo
+                  src={images.awardCeo}
+                  alt={`${profile.name} receiving the “${award.title}” award from the CSK Infotech CEO`}
+                  fit="contain"
+                  rounded="rounded-lg"
+                  className="w-full max-h-[560px] mx-auto"
+                />
+              </div>
+            )}
           </div>
 
           {/* Right column */}
           <div className="grid gap-6 content-start">
             {images.certChoice && (
               <div className="reveal card overflow-hidden p-4">
-                {/* contain, not cover — the certificate is portrait, and cropping
-                    it to a 16:9 strip would hide the thing worth showing. */}
+                {/* contain, not cover — this is a photo of the framed certificate,
+                    and a crop would cut the frame or the text off. */}
                 <Photo
                   src={images.certChoice}
-                  alt={`“${award.title}” certificate awarded to ${profile.name}`}
+                  alt={`The framed “${award.title}” certificate awarded to ${profile.name} by CSK Information Technology`}
                   fit="contain"
                   rounded="rounded-lg"
-                  className="w-full max-h-[420px]"
+                  className="w-full max-h-[460px] mx-auto"
                 />
               </div>
             )}

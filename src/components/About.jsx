@@ -1,9 +1,11 @@
-import { profile, images } from "../data/content";
+import { profile, images, experience } from "../data/content";
 import Photo from "./Photo";
 
+// Experience is derived from CAREER_START so it stays true without edits.
+const exp = experience();
 const stats = [
-  ["14+", "Months experience"],
-  ["02", "Production systems"],
+  [exp.value, exp.label],
+  ["03", "Shipped projects"],
   ["350+", "Tickets resolved"],
 ];
 

@@ -92,6 +92,51 @@ export const helpdesk = {
   ],
 };
 
+// ── Experience, derived not hardcoded ─────────────────────────────────────────
+// First professional role (the Mangoesorange internship). The About stat reads
+// from this, so it can never drift out of date again — never hardcode the number
+// somewhere else. Month is 0-indexed: 9 = October.
+export const CAREER_START = new Date(2024, 9, 1);
+
+export function experience(now = new Date()) {
+  const months =
+    (now.getFullYear() - CAREER_START.getFullYear()) * 12 +
+    (now.getMonth() - CAREER_START.getMonth());
+  return months < 24
+    ? { value: `${months}+`, label: "Months experience" }
+    : { value: `${Math.floor(months / 12)}+`, label: "Years experience" };
+}
+
+export const genzysip = {
+  index: "03",
+  title: "Genzy Sip",
+  subtitle: "Scroll-Driven Product Film",
+  url: "https://genzysip.vercel.app",
+  repo: "https://github.com/Anurag945/Genzysip",
+  blurb:
+    "A brand site for a pre-biotic mocktail where scrolling scrubs a 540-frame product film. Every frame is painted to a canvas by hand — there's no video element — so the motion is locked to scroll position instead of merely playing near it.",
+  stack: ["React 18", "TypeScript", "Canvas 2D", "GSAP ScrollTrigger", "Vite"],
+  facts: [
+    { stat: "540", label: "Frames scrubbed" },
+    { stat: "4K", label: "Source masters" },
+    { stat: "0", label: "Video elements" },
+  ],
+  modules: [
+    {
+      title: "Progressive wave loading",
+      text: "Frames arrive in four passes — 20 spread across the timeline, then every 8th, every 4th, then the rest. The sequence is scrubbable in seconds at coarse resolution and sharpens as it fills, instead of holding the page behind a loading bar.",
+    },
+    {
+      title: "Never a blank frame",
+      text: "If the exact frame hasn't decoded yet, the renderer scans outward for the nearest one that has. Painting is fully decoupled from loading and always completes in the same animation frame, so fast scrolling never stalls or flashes.",
+    },
+    {
+      title: "Sharp on every display",
+      text: "The canvas is sized to the device pixel ratio and repainted on resize, with frames mastered at 4K — so the film stays crisp on retina screens rather than softening the way an upscaled 1080p source would.",
+    },
+  ],
+};
+
 export const skills = [
   { group: "Languages", items: ["JavaScript (ES6+)", "PHP", "Python", "Java", "SQL"] },
   { group: "Frontend", items: ["React.js", "Material UI", "Tailwind", "Recharts", "GSAP", "Three.js"] },
@@ -127,8 +172,10 @@ export const education = {
 // ever ships. Keep source images web-sized: ~1400px on the long edge is plenty.
 export const images = {
   me: "/images/me.jpg",
+  // A frame lifted from the live Genzy Sip build, for the case card.
+  genzysip: "/images/genzysip.jpg",
+  // You receiving the award from the CEO — fills the tall left card.
+  awardCeo: "/images/award-ceo.jpg",
+  // The framed certificate itself.
   certChoice: "/images/cert-choice-of-csk.jpg",
-  // Add /public/images/award-ceo.jpg (you receiving the award) and set the path
-  // here to show it on the Recognition section.
-  awardCeo: null,
 };
