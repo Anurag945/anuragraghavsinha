@@ -45,6 +45,11 @@ export default function AskAI() {
           role: "assistant",
           content: "⚙️ The assistant isn't connected yet — it goes live once the site is deployed with an API key. Until then, email Anurag at anuragraghavsinha@gmail.com.",
         }]);
+      } else if (res.status === 429) {
+        setMessages((m) => [...m, {
+          role: "assistant",
+          content: "That's a lot of questions in a short window — give me a minute to catch up, then ask again. In a hurry? Email Anurag at anuragraghavsinha@gmail.com.",
+        }]);
       } else if (!res.ok) {
         throw new Error("bad response");
       } else {

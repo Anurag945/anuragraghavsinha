@@ -2,6 +2,7 @@ import { defineConfig, loadEnv } from 'vite'
 import react from '@vitejs/plugin-react'
 import tailwindcss from '@tailwindcss/vite'
 import { askAssistant } from './api/lib/answer.js'
+import { checkRateLimit } from './api/lib/ratelimit.js'
 
 // https://vite.dev/config/
 export default defineConfig(({ mode }) => {
@@ -22,6 +23,15 @@ export default defineConfig(({ mode }) => {
             if (req.method !== 'POST') {
               res.statusCode = 405
               res.end('Method not allowed')
+              return
+            }
+            // Same throttle as production, so dev behaves like the deployed endpoint.
+            const limit = checkRateLimit(req)
+            if (!limit.ok) {
+              res.statusCode = 429
+              res.setHeader('Retry-After', String(limit.retryAfter))
+              res.setHeader('Content-Type', 'application/json')
+              res.end(JSON.stringify({ error: 'rate_limited', retryAfter: limit.retryAfter }))
               return
             }
             let body = ''
