@@ -48,7 +48,7 @@ export default function LaptopDashboard() {
         </div>
 
         {/* dashboard body */}
-        <div className="p-4 bg-[#0b0b12]">
+        <div className="p-4" style={{ background: "var(--color-bg-2)" }}>
           {/* KPI row */}
           <div className="grid grid-cols-3 gap-3">
             {crm.kpis.map((k, i) => (
@@ -77,8 +77,8 @@ export default function LaptopDashboard() {
                       height: `${h}%`,
                       background:
                         h === peak
-                          ? "linear-gradient(180deg,#ec4899,#8b5cf6)"
-                          : "linear-gradient(180deg,rgba(139,92,246,.7),rgba(236,72,153,.35))",
+                          ? "linear-gradient(180deg,var(--color-orange-2),var(--color-orange))"
+                          : "linear-gradient(180deg,rgba(242,106,27,.55),rgba(242,106,27,.2))",
                     }}
                   />
                 ))}

@@ -2,13 +2,6 @@ import { Link } from "react-router-dom";
 import { helpdesk } from "../data/content";
 import CaseSection, { Prose } from "../components/CaseSection";
 
-const tiles = [
-  { stat: "150+", label: "FACULTY SERVED" },
-  { stat: "10",   label: "FIELD ENGINEERS" },
-  { stat: "SLA",  label: "CUSTOM ENGINE BUILT" },
-  { stat: "100%", label: "SOLO BUILT & DEPLOYED" },
-];
-
 export default function HelpdeskCaseStudy() {
   return (
     <article className="pt-[120px] pb-[120px]">
@@ -63,7 +56,7 @@ export default function HelpdeskCaseStudy() {
       {/* ── Stats ── */}
       <CaseSection label="At a glance">
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-          {tiles.map((t) => (
+          {helpdesk.glance.map((t) => (
             <div key={t.label} className="reveal border border-line bg-white/[0.02] p-6 aspect-video flex flex-col justify-between">
               <div className="display font-extrabold text-[40px] leading-none" style={{ color: "var(--color-orange)" }}>{t.stat}</div>
               <div className="label">{t.label}</div>

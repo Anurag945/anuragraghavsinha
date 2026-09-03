@@ -1,13 +1,6 @@
 import { Link } from "react-router-dom";
 import { helpdesk } from "../data/content";
 
-const tiles = [
-  { icon: "confirmation_number", stat: "350+", label: "TICKETS RESOLVED" },
-  { icon: "group",               stat: "3",    label: "DISTINCT USER ROLES" },
-  { icon: "speed",               stat: "SLA",  label: "CUSTOM ENGINE BUILT" },
-  { icon: "verified_user",       stat: "100%", label: "SOLO BUILT & DEPLOYED" },
-];
-
 export default function HelpdeskCase() {
   return (
     <section id="helpdesk" className="mt-[96px] md:mt-[160px]">
@@ -42,7 +35,7 @@ export default function HelpdeskCase() {
 
         {/* stat tiles — 2×2 grid, aspect-video, p-8 */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-          {tiles.map((t) => (
+          {helpdesk.tiles.map((t) => (
             <div
               key={t.label}
               className="reveal border border-line bg-white/[0.02] p-8 aspect-video flex flex-col justify-between transition-colors hover:border-[rgba(242,106,27,0.5)]"

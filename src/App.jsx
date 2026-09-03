@@ -12,6 +12,7 @@ import AskAI from "./components/AskAI";
 import Home from "./pages/Home";
 import CrmCaseStudy from "./pages/CrmCaseStudy";
 import HelpdeskCaseStudy from "./pages/HelpdeskCaseStudy";
+import NotFound from "./pages/NotFound";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -64,6 +65,7 @@ export default function App() {
           <Route path="/" element={<Home />} />
           <Route path="/work/central-crm" element={<CrmCaseStudy />} />
           <Route path="/work/lnmiit-helpdesk" element={<HelpdeskCaseStudy />} />
+          <Route path="*" element={<NotFound />} />
         </Routes>
       </main>
 
