@@ -1,6 +1,7 @@
-import { profile } from "../data/content";
 import GhostLetter from "./GhostLetter";
 import RotatingBadge from "./RotatingBadge";
+import AudienceSwitch from "./AudienceSwitch";
+import { useAudience } from "../context/audience";
 
 const bandA = [
   "React", "Node.js", "Express", "MongoDB", "PHP", "SLA Engine",
@@ -40,11 +41,14 @@ const B_LEFT  = "84%";
 const B_ANGLE = 50;
 const B_WIDTH = "175vw";
 
+
 // ── Spinning SCROLL badge position ──
 const BADGE_BOTTOM = "10px"; // distance from the BOTTOM. SMALLER = LOWER on screen. (try 40px–300px)
 const BADGE_LEFT   = "90%";   // horizontal position. 50% = centre, higher = right.
 
 export default function Hero() {
+  const { id: audienceId, audience } = useAudience();
+
   const go = (id) => {
     const el = document.getElementById(id);
     if (window.__lenis) window.__lenis.scrollTo(el, { offset: -90 });
@@ -63,10 +67,9 @@ export default function Hero() {
         style={{ width: 620, height: 620, top: "26%", left: "0%" }} />
 
       <div className="container-x relative z-10 w-full">
-        {/* status pill */}
-        <div className="reveal inline-flex items-center gap-3 border border-line px-4 py-2 rounded-full mb-8">
-          <span className="w-2 h-2 rounded-full animate-pulse" style={{ background: "var(--color-orange)" }} />
-          <span className="label">Available for full-stack roles</span>
+        {/* "Who are you?" audience switch */}
+        <div className="reveal mb-8">
+          <AudienceSwitch />
         </div>
 
         {/* name — display-xl: 80px → 140px, weight 900, -0.04em, lh 0.9 */}
@@ -74,15 +77,22 @@ export default function Hero() {
           ANURAG<br />SINHA<span style={{ color: "var(--color-orange)" }}>.</span>
         </h1>
 
-        {/* subtitle — body-md: 18px / 1.6 */}
-        <p className="reveal mt-8 max-w-xl text-[18px] leading-[1.6]" style={{ color: "var(--color-muted)" }}>
-          {profile.role} — I design, build &amp; ship production systems, end to end.
+        {/* tagline — adapts to the selected audience (re-fades on change) */}
+        <p key={audienceId} className="fade-swap mt-8 max-w-xl text-[18px] leading-[1.6]" style={{ color: "var(--color-muted)" }}>
+          {audience.tagline}
         </p>
 
-        {/* CTAs */}
+        {/* audience highlight points */}
+        <div key={audienceId + "-pts"} className="fade-swap mt-5 flex flex-wrap gap-2">
+          {audience.points.map((p) => (
+            <span key={p} className="chip">{p}</span>
+          ))}
+        </div>
+
+        {/* CTAs — primary adapts to the audience */}
         <div className="reveal mt-9 flex flex-wrap gap-4">
-          <button onClick={() => go("crm")} className="btn-grad rounded-full px-7 py-3.5 transition">
-            See my work
+          <button onClick={() => go(audience.cta.target)} className="btn-grad rounded-full px-7 py-3.5 transition">
+            {audience.cta.label}
           </button>
           <button
             onClick={() => go("contact")}

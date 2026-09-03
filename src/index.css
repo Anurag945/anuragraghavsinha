@@ -133,6 +133,10 @@ main { position: relative; z-index: 2; }
 /* reveal */
 .reveal { opacity: 0; transform: translateY(30px); will-change: transform, opacity; }
 
+/* audience swap fade (re-plays when the keyed element remounts) */
+.fade-swap { animation: fadeswap .45s ease both; }
+@keyframes fadeswap { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: none; } }
+
 /* ─── Animated architecture diagram ─── */
 .arch .node { opacity: 0; transform: translateY(12px) scale(0.97); transform-box: fill-box; transform-origin: center; transition: opacity .55s ease, transform .55s ease; }
 .arch.in .node { opacity: 1; transform: none; }
@@ -143,7 +147,7 @@ main { position: relative; z-index: 2; }
 
 @media (prefers-reduced-motion: reduce) {
   .reveal { opacity: 1; transform: none; }
-  .spin, .marquee-track, .marquee-track-rev, .grain, .glow-pulse { animation: none; }
+  .spin, .marquee-track, .marquee-track-rev, .grain, .glow-pulse, .fade-swap { animation: none; }
   .arch .node, .arch .elabel { opacity: 1; transform: none; }
   .arch .edge { stroke-dashoffset: 0; }
 }
