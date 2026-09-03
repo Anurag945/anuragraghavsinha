@@ -64,14 +64,25 @@ export default function Navbar() {
             </button>
           ))}
         </div>
-        <a
-          href={profile.resume}
-          target="_blank"
-          rel="noreferrer"
-          className="btn-grad label rounded-full px-6 py-3 transition"
-        >
-          Résumé ↗
-        </a>
+        {/* Résumé button only when a PDF is actually configured (see profile.resume).
+            Otherwise fall back to the contact CTA rather than linking to nothing. */}
+        {profile.resume ? (
+          <a
+            href={profile.resume}
+            target="_blank"
+            rel="noreferrer"
+            className="btn-grad label rounded-full px-6 py-3 transition"
+          >
+            Résumé ↗
+          </a>
+        ) : (
+          <button
+            onClick={() => go("contact")}
+            className="btn-grad label rounded-full px-6 py-3 transition"
+          >
+            Get in touch
+          </button>
+        )}
       </nav>
     </header>
   );

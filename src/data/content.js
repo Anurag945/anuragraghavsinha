@@ -14,7 +14,11 @@ export const profile = {
   phone: "+91 76686 27902",
   github: "https://github.com/Anurag945",
   linkedin: "https://linkedin.com/in/anurag-sinha945",
-  resume: "/Anurag_Raghav_Sinha_Resume.pdf",
+  // Résumé link. Leave null while there's no PDF — the navbar hides the button
+  // instead of linking to a file that doesn't exist (a missing file falls through
+  // the vercel.json SPA rewrite and serves a blank page, not a 404).
+  // To enable: drop the PDF in /public and set this to "/<filename>.pdf".
+  resume: null,
 };
 
 export const crm = {
@@ -58,11 +62,19 @@ export const helpdesk = {
   blurb:
     "I single-handedly designed, built, and deployed a production IT helpdesk for The LNM Institute of Information Technology, Jaipur — serving 150+ faculty and a 10-person field team under a multi-year maintenance contract.",
   stack: ["PHP 8", "MariaDB", "Chart.js", "GitHub Actions", "cPanel"],
-  stats: [
-    { value: 150, suffix: "+", label: "Faculty served" },
-    { value: 4, suffix: "", label: "Roles (RBAC)" },
-    { value: 10, suffix: "", label: "Field engineers" },
-    { value: 1, suffix: "", label: "Sole owner" },
+  // Stat tiles on the home-page section (icons are Material Symbols names).
+  tiles: [
+    { icon: "confirmation_number", stat: "350+", label: "Tickets resolved" },
+    { icon: "group", stat: "4", label: "Distinct user roles" },
+    { icon: "speed", stat: "SLA", label: "Custom engine built" },
+    { icon: "verified_user", stat: "100%", label: "Solo built & deployed" },
+  ],
+  // "At a glance" tiles on the deep-dive case-study page.
+  glance: [
+    { stat: "150+", label: "Faculty served" },
+    { stat: "10", label: "Field engineers" },
+    { stat: "SLA", label: "Custom engine built" },
+    { stat: "100%", label: "Solo built & deployed" },
   ],
   modules: [
     {
@@ -110,11 +122,13 @@ export const education = {
   score: "CGPA 7.8 / 10",
 };
 
-// Image paths — drop files in /public/images/. Missing files fall back to
-// labeled placeholders automatically (see <Photo /> component).
+// Image paths — drop files in /public/images/ and point an entry at them.
+// A null entry is simply not rendered (see <Photo />), so nothing half-finished
+// ever ships. Keep source images web-sized: ~1400px on the long edge is plenty.
 export const images = {
   me: "/images/me.jpg",
-  awardCeo: "/images/award-ceo.jpg",
   certChoice: "/images/cert-choice-of-csk.jpg",
-  crmShot: "/images/crm-pipeline.png",
+  // Add /public/images/award-ceo.jpg (you receiving the award) and set the path
+  // here to show it on the Recognition section.
+  awardCeo: null,
 };

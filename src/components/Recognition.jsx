@@ -1,4 +1,4 @@
-import { recognition, education, images } from "../data/content";
+import { profile, recognition, education, images } from "../data/content";
 import Photo from "./Photo";
 
 export default function Recognition() {
@@ -14,7 +14,7 @@ export default function Recognition() {
           <div className="reveal card overflow-hidden p-0">
             <Photo
               src={images.awardCeo}
-              label="CEO handing you the certificate (award-ceo.jpg)"
+              alt={`${award.title} award being presented by the CSK Infotech CEO`}
               rounded="rounded-none"
               className="w-full aspect-video"
             />
@@ -30,14 +30,19 @@ export default function Recognition() {
 
           {/* Right column */}
           <div className="grid gap-6 content-start">
-            <div className="reveal card overflow-hidden p-0">
-              <Photo
-                src={images.certChoice}
-                label="Your certificate (cert-choice-of-csk.jpg)"
-                rounded="rounded-none"
-                className="w-full aspect-video"
-              />
-            </div>
+            {images.certChoice && (
+              <div className="reveal card overflow-hidden p-4">
+                {/* contain, not cover — the certificate is portrait, and cropping
+                    it to a 16:9 strip would hide the thing worth showing. */}
+                <Photo
+                  src={images.certChoice}
+                  alt={`“${award.title}” certificate awarded to ${profile.name}`}
+                  fit="contain"
+                  rounded="rounded-lg"
+                  className="w-full max-h-[420px]"
+                />
+              </div>
+            )}
 
             <div className="reveal card p-6">
               <h3 className="display font-semibold mb-4">Certifications</h3>

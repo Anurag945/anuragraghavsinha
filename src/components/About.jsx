@@ -26,9 +26,16 @@ export default function About() {
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {/* photo */}
-            <div className="reveal">
-              <Photo src={images.me} label="me.jpg" className="w-full aspect-square" rounded="rounded-none" />
-            </div>
+            {images.me && (
+              <div className="reveal">
+                <Photo
+                  src={images.me}
+                  alt={`${profile.name}, ${profile.role}`}
+                  className="w-full aspect-square"
+                  rounded="rounded-none"
+                />
+              </div>
+            )}
 
             {/* body + stats */}
             <div className="reveal flex flex-col justify-between py-2">
