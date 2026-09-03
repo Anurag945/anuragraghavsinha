@@ -1,8 +1,8 @@
 import { defineConfig, loadEnv } from 'vite'
 import react from '@vitejs/plugin-react'
 import tailwindcss from '@tailwindcss/vite'
-import { askAssistant } from './api/lib/answer.js'
-import { checkRateLimit } from './api/lib/ratelimit.js'
+import { askAssistant } from './lib/answer.js'
+import { checkRateLimit } from './lib/ratelimit.js'
 
 // https://vite.dev/config/
 export default defineConfig(({ mode }) => {

@@ -1,7 +1,9 @@
 // Vercel serverless function — POST /api/chat
 // Holds the API key (server-side env var) and proxies to the LLM.
-import { askAssistant } from "./lib/answer.js";
-import { checkRateLimit } from "./lib/ratelimit.js";
+// Helpers live in /lib, NOT /api — Vercel turns every file under /api into its
+// own serverless function, so shared modules there ship as broken endpoints.
+import { askAssistant } from "../lib/answer.js";
+import { checkRateLimit } from "../lib/ratelimit.js";
 
 const MAX_MESSAGES = 40;
 
