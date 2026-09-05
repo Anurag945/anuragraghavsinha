@@ -64,7 +64,7 @@ export default function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/work/central-crm" element={<CrmCaseStudy />} />
-          <Route path="/work/lnmiit-helpdesk" element={<HelpdeskCaseStudy />} />
+          <Route path="/work/it-helpdesk" element={<HelpdeskCaseStudy />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </main>

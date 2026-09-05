@@ -56,11 +56,13 @@ export const helpdesk = {
   index: "02",
   tint: "peach",
   label: "Case Study",
-  title: "LNMIIT IT Helpdesk",
+  title: "Institute IT Helpdesk",
   subtitle: "Production Support Portal · Built & Deployed Solo",
-  url: "https://lnmiitsupport.cskinfotech.com",
+  // Client is deliberately unnamed and the live URL is withheld — the domain
+  // identifies them. Scale and contract terms carry the credibility instead.
+  url: null,
   blurb:
-    "I single-handedly designed, built, and deployed a production IT helpdesk for The LNM Institute of Information Technology, Jaipur — serving 150+ faculty and a 10-person field team under a multi-year maintenance contract.",
+    "I single-handedly designed, built, and deployed a production IT helpdesk for an engineering institute — serving 150+ faculty and a 10-person field team under a multi-year maintenance contract.",
   stack: ["PHP 8", "MariaDB", "Chart.js", "GitHub Actions", "cPanel"],
   // Stat tiles on the home-page section (icons are Material Symbols names).
   tiles: [
@@ -138,9 +140,12 @@ export const genzysip = {
 };
 
 export const skills = [
-  { group: "Languages", items: ["JavaScript (ES6+)", "PHP", "Python", "Java", "SQL"] },
+  // NOTE: this list is a claim about what you can write unaided — keep it that
+  // way. A stack listed on a project (e.g. PHP 8 on the helpdesk) is a fact
+  // about that system, which is a different thing and stays accurate there.
+  { group: "Languages", items: ["JavaScript (ES6+)", "Python", "Java", "SQL"] },
   { group: "Frontend", items: ["React.js", "Material UI", "Tailwind", "Recharts", "GSAP", "Three.js"] },
-  { group: "Backend", items: ["Node.js", "Express", "PHP 8", "REST APIs", "JWT / SSO"] },
+  { group: "Backend", items: ["Node.js", "Express", "REST APIs", "JWT / SSO", "node-cron"] },
   { group: "Databases", items: ["MongoDB", "MariaDB", "MySQL", "PostgreSQL"] },
   { group: "Architecture", items: ["RBAC", "SLA Engines", "Audit Logging", "System Design"] },
   { group: "DevOps & AI", items: ["Git / GitHub", "GitHub Actions", "cPanel", "node-cron", "LLM Integration"] },
@@ -154,7 +159,6 @@ export const recognition = {
     text: "Recognition for building the Central CRM modules that streamlined the sales team's daily workflow.",
   },
   certs: [
-    { title: "Mastering Generative AI & ChatGPT", issuer: "GeeksforGeeks", date: "2026 · In progress" },
     { title: "Data Structures & Algorithms with Java", issuer: "Coding Ninjas", date: "2024" },
     { title: "Introduction to Java", issuer: "Coding Ninjas", date: "2024" },
   ],

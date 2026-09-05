@@ -17,7 +17,7 @@ export default function HelpdeskCaseStudy() {
 
         <p className="reveal label mb-4" style={{ color: "var(--color-orange)" }}>// Case study · 02</p>
         <h1 className="reveal display font-black text-[48px] md:text-[88px] leading-[0.95] tracking-[-0.03em]">
-          LNMIIT Helpdesk<span style={{ color: "var(--color-orange)" }}>.</span>
+          IT Helpdesk<span style={{ color: "var(--color-orange)" }}>.</span>
         </h1>
         <p className="reveal mt-5 max-w-2xl text-[18px] leading-[1.6]" style={{ color: "var(--color-muted)" }}>
           {helpdesk.blurb}
@@ -41,16 +41,22 @@ export default function HelpdeskCaseStudy() {
           </div>
         </div>
 
-        {/* live link */}
-        <a
-          href={helpdesk.url}
-          target="_blank"
-          rel="noreferrer"
-          className="reveal inline-flex mt-8 text-sm hover:underline"
-          style={{ color: "var(--color-orange)" }}
-        >
-          Visit the live site ↗
-        </a>
+        {/* live link — withheld while the client is unnamed */}
+        {helpdesk.url ? (
+          <a
+            href={helpdesk.url}
+            target="_blank"
+            rel="noreferrer"
+            className="reveal inline-flex mt-8 text-sm hover:underline"
+            style={{ color: "var(--color-orange)" }}
+          >
+            Visit the live site ↗
+          </a>
+        ) : (
+          <p className="reveal mono text-xs mt-8" style={{ color: "var(--color-muted)" }}>
+            Internal client system — walkthrough available on request.
+          </p>
+        )}
       </div>
 
       {/* ── Stats ── */}
@@ -69,7 +75,7 @@ export default function HelpdeskCaseStudy() {
       <CaseSection label="Overview" title="The problem">
         <Prose>
           <p>
-            The LNM Institute of Information Technology, Jaipur needed a real IT helpdesk — somewhere 150+
+            An engineering institute needed a real IT helpdesk — somewhere 150+
             faculty could raise issues and a 10-person field team could track, prioritise and resolve them,
             all under a multi-year maintenance contract.
           </p>

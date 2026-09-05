@@ -126,8 +126,8 @@ export default function CrmCaseStudy() {
         </Prose>
 
         <div className="reveal mt-10 flex flex-wrap gap-4">
-          <Link to="/work/lnmiit-helpdesk" className="btn-grad rounded-full px-7 py-3.5 transition">
-            Next: LNMIIT Helpdesk →
+          <Link to="/work/it-helpdesk" className="btn-grad rounded-full px-7 py-3.5 transition">
+            Next: IT Helpdesk →
           </Link>
           <Link to="/" className="rounded-full border border-line px-7 py-3.5 font-medium hover:bg-white/5 transition">
             Back to home

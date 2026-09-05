@@ -15,22 +15,28 @@ export default function HelpdeskCase() {
               {helpdesk.blurb}
             </p>
             <Link
-              to="/work/lnmiit-helpdesk"
+              to="/work/it-helpdesk"
               className="reveal inline-flex mt-5 text-sm hover:underline"
               style={{ color: "var(--color-orange)" }}
             >
               Read the full case study →
             </Link>
           </div>
-          <a
-            href={helpdesk.url}
-            target="_blank"
-            rel="noreferrer"
-            className="text-sm whitespace-nowrap hover:underline transition-opacity hover:opacity-70"
-            style={{ color: "var(--color-orange)" }}
-          >
-            Visit live site ↗
-          </a>
+          {helpdesk.url ? (
+            <a
+              href={helpdesk.url}
+              target="_blank"
+              rel="noreferrer"
+              className="text-sm whitespace-nowrap hover:underline transition-opacity hover:opacity-70"
+              style={{ color: "var(--color-orange)" }}
+            >
+              Visit live site ↗
+            </a>
+          ) : (
+            <p className="mono text-xs whitespace-nowrap" style={{ color: "var(--color-muted)" }}>
+              Client system · not publicly linked
+            </p>
+          )}
         </div>
 
         {/* stat tiles — 2×2 grid, aspect-video, p-8 */}

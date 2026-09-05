@@ -7,7 +7,7 @@ export const AUDIENCES = [
     label: "Recruiter",
     tagline:
       "Full-Stack Developer — open to roles in India & remote. I ship production systems, end to end.",
-    points: ["Available now", "2 production systems shipped", "MERN · PHP · AI"],
+    points: ["Available now", "2 production systems shipped", "MERN · REST · AI"],
     cta: { label: "See my work", target: "crm" },
   },
   {
@@ -15,7 +15,7 @@ export const AUDIENCES = [
     label: "Engineer",
     tagline:
       "Full-Stack Developer — I care about clean architecture, solid APIs, and systems that don't drift.",
-    points: ["SSO · RBAC · SLA engines", "Node/Express · MongoDB · PHP", "AI-integrated (this site's bot)"],
+    points: ["SSO · RBAC · SLA engines", "Node/Express · MongoDB", "AI-integrated (this site's bot)"],
     cta: { label: "See the architecture", target: "crm" },
   },
   {
